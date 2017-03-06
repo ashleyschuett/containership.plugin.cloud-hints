@@ -1,11 +1,26 @@
-var ContainershipPlugin = require("containership.plugin");
-var cloud_hints = require([__dirname, "cloud-hints"].join("/"));
+'use strict';
+
+const cloud_hints = require('./cloud-hints');
+
+const ContainershipPlugin = require('containership.plugin');
 
 module.exports = new ContainershipPlugin({
-    type: "core",
+    type: 'core',
+
+    runLeader: function(core) {
+        cloud_hints.get_hints(core);
+    },
+
+    runFollower(core) {
+        cloud_hints.get_hints(core);
+    },
 
     initialize: function(core){
-        cloud_hints.get_hints(core);
+        if(core.options.mode === 'leader') {
+            return module.exports.runLeader(core);
+        }
+
+        return module.exports.runFollower(core);
     },
 
     reload: function(){}
