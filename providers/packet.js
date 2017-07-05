@@ -3,7 +3,7 @@ var request = require("request");
 
 module.exports = {
 
-    is_true: function(fn){
+    get_metadata: function(fn){
 
         var options = {
             url: "https://metadata.packet.net/metadata",

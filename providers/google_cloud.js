@@ -6,7 +6,7 @@ const request = require("request");
 
 module.exports = {
 
-    is_true: (callback) => {
+    get_metadata: (callback) => {
         const default_options = {
             baseUrl: 'http://metadata.google.internal/computeMetadata/v1',
             method: 'GET',

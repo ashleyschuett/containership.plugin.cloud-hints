@@ -75,12 +75,11 @@ module.exports = {
             }
         }, function(err, metadata){
             if(_.isUndefined(err)){
-                metadata.provider = "amazon_web_services";
+                metadata.provider = 'lightsail';
                 return fn(metadata);
             }
             else
                 return fn();
         });
     }
-
 }

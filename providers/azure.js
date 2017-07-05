@@ -6,7 +6,7 @@ let FILE_PATH = '/etc/cloud/cloud.cfg.d/90-azure.cfg';
 
 module.exports = {
 
-    is_true: (callback) => {
+    get_metadata: (callback) => {
         fs.stat(DOCKER_ENV_PATH, (err, stats) => {
             if(!err && stats) {
                 FILE_PATH = `/rootfs${FILE_PATH}`;
@@ -23,5 +23,4 @@ module.exports = {
             });
         });
     }
-
 }

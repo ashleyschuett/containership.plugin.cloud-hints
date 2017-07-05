@@ -4,7 +4,7 @@ var request = require("request");
 
 module.exports = {
 
-    is_true: function(fn){
+    get_metadata: function(fn){
         async.parallel({
             droplet_id: function(fn){
                 var options = {
